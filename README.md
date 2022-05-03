@@ -6,7 +6,7 @@ Terraform module to create rds cluster. This module is used for instances with c
 
 - Paramteres - <https://github.com/virsas/terraform_rds_parameters> 
 - Subnets - <https://github.com/virsas/terraform_rds_subnet> 
-- Subnets - <https://github.com/virsas/terraform_vpc_sg> 
+- Security groups - <https://github.com/virsas/terraform_vpc_sg> 
 
 ## Terraform example
 
