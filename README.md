@@ -4,9 +4,9 @@ Terraform module to create rds cluster. This module is used for instances with c
 
 ## Dependencies
 
-- Paramteres - <https://github.com/virsas/terraform_rds_parameters> 
-- Subnets - <https://github.com/virsas/terraform_rds_subnet> 
-- Security groups - <https://github.com/virsas/terraform_vpc_sg> 
+- Paramteres - <https://github.com/virsas/terraform_rds_cluster_parameters>
+- Subnets - <https://github.com/virsas/terraform_rds_subnet>
+- Security groups - <https://github.com/virsas/terraform_vpc_sg>
 
 ## Terraform example
 
@@ -14,8 +14,8 @@ Terraform module to create rds cluster. This module is used for instances with c
 ###################
 # RDS variable
 ###################
-variable "rds_cluster" { 
-  default = { 
+variable "rds_cluster" {
+  default = {
     # number of instaces in the cluster (one RW and rest RO and ready for failover)
     instance_count = 2
     name = "rds_cluster"
@@ -42,7 +42,7 @@ variable "rds_cluster" {
     public = true
     maintenance = true
     encrypted = true
-  } 
+  }
 }
 
 ###################
@@ -52,7 +52,7 @@ module "rds_cluster" {
   source            = "github.com/virsas/terraform_rds_cluster"
   instance          = var.rds_cluster
   security_groups   = [ module.vpc_sg_admin.id, module.vpc_sg_sql.id ]
-  params            = module.rds_example_params.id
+  params            = module.rds_example_cluster_params.id
   subnet            = module.rds_exmaple_subnet.id
 }
 ```
