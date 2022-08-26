@@ -49,7 +49,7 @@ variable "rds_cluster" {
 # RDS module
 ###################
 module "rds_cluster" {
-  source            = "github.com/virsas/terraform_rds_cluster"
+  source            = "git::https://github.com/virsas/terraform_rds_cluster.git?ref=v1.0.0"
   instance          = var.rds_cluster
   security_groups   = [ module.vpc_sg_admin.id, module.vpc_sg_sql.id ]
   params            = module.rds_example_cluster_params.id
